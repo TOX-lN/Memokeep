@@ -3,6 +3,14 @@
 import { Button } from "@/components/ui/button";
 import { ArrowBigRight } from "lucide-react";
 
+import { Poppins } from "next/font/google";
+import { cn } from "@/lib/utils";
+
+const font = Poppins({
+    subsets: ["latin"],
+    weight: ["400", "600"]
+});
+
 export const Heading = () => {
     return (  
         <div className ="max-w-3xl space-y-4">
@@ -11,7 +19,7 @@ export const Heading = () => {
                 <span className="underline">Welcome to MemoKeep.</span>
             </h1>
             <h3 className="text-base sm:text-xl md:text-2xl font-medium">
-                 MemoKeep is the smart way to capture, organize <br />
+                 The smart way to capture, organize <br />
                   and expand your thoughts.
             </h3>
             <Button>

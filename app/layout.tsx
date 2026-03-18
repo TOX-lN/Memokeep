@@ -18,9 +18,16 @@ export const metadata: Metadata = {
   icons: {
     icon : [
       {
-        url : "/MemoKeep.png",
-        href : "/MemoKeep.png",
-      }
+        media: "(prefers-color-scheme: light)",
+        url : "/Memologo.png",
+        href : "/Memologo.png",
+      },
+
+      {
+        media: "(prefers-color-scheme: dark)",
+        url : "/Memologo-dark.png",
+        href : "/Memologo-dark.png",
+      }  
     ]
   }
 };
