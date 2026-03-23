@@ -5,8 +5,10 @@ import {cn} from "@/lib/utils"
 import { Logo } from "./logo";
 import { ModeToggle } from "@/components/mode-toggle";
 import { useConvexAuth } from "convex/react";
-import { SignInButton } from "@clerk/nextjs";
+import { SignInButton, UserButton } from "@clerk/nextjs";
 import { Button } from "@/components/ui/button";
+import Link from "next/link";
+
 
 export const Navbar = () => {
     const scrolled = useScrollTop();
@@ -30,9 +32,20 @@ export const Navbar = () => {
                     </SignInButton>
                      <SignInButton mode="modal">
                         <Button size="sm">
-                            Get MemoKeep
+                            Join MemoKeep
                         </Button>
                     </SignInButton>
+                </>
+            )}
+
+            {isAuthenticated && !isLoading && (
+                <>
+                <Button variant="ghost" size="sm" asChild>
+                    <Link href="/documents">
+                    Enter MemoKeep
+                    </Link>
+                </Button>
+                <UserButton />
                 </>
 
             )}

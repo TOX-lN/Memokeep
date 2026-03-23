@@ -5,11 +5,15 @@ import { ArrowBigRight } from "lucide-react";
 
 import { Poppins } from "next/font/google";
 import { cn } from "@/lib/utils";
+import { useConvexAuth } from "convex/react";
+import { spinner}
 
 const font = Poppins({
     subsets: ["latin"],
     weight: ["400", "600"]
 });
+
+const {isAuthenticated, isLoading } = useConvexAuth()
 
 export const Heading = () => {
     return (  
@@ -22,11 +26,17 @@ export const Heading = () => {
                  The smart way to capture, organize <br />
                   and expand your thoughts.
             </h3>
+            {isLoading && (
+                <Spinner />
+            )}
+
+
+            {!isAuthenticated && !isLoading && (
             <Button>
                 Enter Memokeep
                 <ArrowBigRight className="w-4 h-4 ml-2" />
             </Button>
-            
+            )}
         </div>
     );
 }
